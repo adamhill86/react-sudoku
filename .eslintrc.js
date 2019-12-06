@@ -6,15 +6,16 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    'eslint-plugin-react',
-    'eslint-plugin-prettier',
-    'eslint-plugin-react-hooks',
-    'eslint-plugin-jsx-a11y',
+    'json-format',
+    'jsx-a11y',
+    'prettier',
+    'react',
+    'react-hooks',
   ],
   extends: [
-    'react-app',
     'airbnb',
-    'airbnb/hooks'
+    'airbnb/hooks',
+    'react-app',
   ],
   rules: {
     'import/no-unresolved': 'off',
