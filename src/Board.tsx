@@ -4,13 +4,11 @@ const Board: React.FC = () => {
   const [board, setBoardState] = useState<number[][]>(Array(9).fill(Array(9).fill(0)));
 
   // TODO: Add input validation, constrain to 0-9
-  const updateBoardState = (value: number, row: number, col: number) => {
-    return setBoardState(
-      board.map((rows, rowIndex) =>
-        rows.map((column, colIndex) => (rowIndex === row && colIndex === col ? value : column))
-      )
-    );
-  };
+  const updateBoardState = (value: number, row: number, col: number) => setBoardState(
+    board.map((rows, rowIndex) =>
+      rows.map((column, colIndex) => (rowIndex === row && colIndex === col ? value : column)),
+    ),
+  );
 
   return (
     <table>
