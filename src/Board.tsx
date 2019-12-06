@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { clone } from './util/deepCopy';
+import clone from './util/deepCopy';
 
 const Board: React.FC = () => {
   const [board, setBoardState] = useState<number[][]>(Array(9).fill(Array(9).fill(0)));
 
   const updateBoardState = (value: number, row: number, col: number) => {
-    console.log(value);
     if (value < 0 || value > 9) {
       value = 0;
     }
@@ -19,8 +18,10 @@ const Board: React.FC = () => {
     <table>
       <tbody>
         {board.map((row, rowIndex) => (
+          // eslint-disable-next-line react/no-array-index-key
           <tr key={rowIndex}>
             {row.map((col, colIndex) => (
+              // eslint-disable-next-line react/no-array-index-key
               <td key={colIndex}>
                 <input
                   type='number'

@@ -6,6 +6,6 @@ const App: React.FC = () => (
   <div className='App'>
     <Board />
   </div>
-)
+);
 
 export default App;

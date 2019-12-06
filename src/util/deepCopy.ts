@@ -4,3 +4,5 @@ export function clone<T>(items: T): T {
   }
   return items;
 }
+
+export default clone;
