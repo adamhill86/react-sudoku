@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import shortid from 'shortid';
 import clone from './util/deepCopy';
 
 const Board: React.FC = () => {
@@ -18,11 +19,9 @@ const Board: React.FC = () => {
     <table>
       <tbody>
         {board.map((row, rowIndex) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <tr key={rowIndex}>
+          <tr key={shortid()}>
             {row.map((col, colIndex) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <td key={colIndex}>
+              <td key={shortid()}>
                 <input
                   type='number'
                   min='0'
