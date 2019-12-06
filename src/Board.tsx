@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { clone } from './util/deepCopy';
 
 const Board: React.FC = () => {
   const [board, setBoardState] = useState<number[][]>(Array(9).fill(Array(9).fill(0)));
 
-  // TODO: Add input validation, constrain to 0-9
-  const updateBoardState = (value: number, row: number, col: number) => setBoardState(
-    board.map((rows, rowIndex) =>
-      rows.map((column, colIndex) => (rowIndex === row && colIndex === col ? value : column)),
-    ),
-  );
+  const updateBoardState = (value: number, row: number, col: number) => {
+    console.log(value);
+    if (value < 0 || value > 9) {
+      value = 0;
+    }
+
+    const newBoard = clone(board);
+    newBoard[row][col] = value;
+    setBoardState(newBoard);
+  };
 
   return (
     <table>
