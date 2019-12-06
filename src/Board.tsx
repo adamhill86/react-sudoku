@@ -20,9 +20,9 @@ const Board: React.FC = () => {
             {row.map((col, colIndex) => (
               <td key={colIndex}>
                 <input
-                  type="number"
-                  min="0"
-                  max="9"
+                  type='number'
+                  min='0'
+                  max='9'
                   value={col}
                   onChange={event => updateBoardState(+event.target.value, rowIndex, colIndex)}
                 />
