@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import shortid from 'shortid';
 import clone from './util/deepCopy';
+import styles from './Board.module.scss';
 
 const Board: React.FC = () => {
   const [board, setBoardState] = useState<number[][]>(Array(9).fill(Array(9).fill(0)));
@@ -16,18 +17,19 @@ const Board: React.FC = () => {
   };
 
   return (
-    <table>
+    <table className={styles.board}>
       <tbody>
         {board.map((row, rowIndex) => (
-          <tr key={shortid()}>
+          <tr key={shortid()} className={styles.row}>
             {row.map((col, colIndex) => (
-              <td key={shortid()}>
+              <td key={shortid()} className={styles.cell}>
                 <input
                   type='number'
                   min='0'
                   max='9'
                   value={col}
                   onChange={event => updateBoardState(+event.target.value, rowIndex, colIndex)}
+                  className={styles.input}
                 />
               </td>
             ))}
